@@ -1,0 +1,2 @@
+@mochimochi__bot
+TLに流れてきたモチに反応するbotです
