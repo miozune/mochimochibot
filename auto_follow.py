@@ -21,7 +21,7 @@ def main():
     not_following_ids = list(set(followers_ids) - set(friends_ids))
 
     if len(not_following_ids) == 0:
-        sleep(70)
+        # sleep(70)
         exit()
 
     for i in range(0, len(not_following_ids), 100):
