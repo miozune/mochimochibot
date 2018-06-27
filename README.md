@@ -1,2 +1,2 @@
-@mochimochi__bot
+@mochimochi__bot  
 TLに流れてきたモチに反応するbotです
