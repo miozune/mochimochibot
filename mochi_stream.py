@@ -55,7 +55,7 @@ class Listener(tweepy.StreamListener):
 def main():
     listener = Listener()
     stream = tweepy.Stream(auth, listener, secure=True)
-    stream.userstream()
+    stream.userstream(async=True)
 
 
 if __name__ == '__main__':
