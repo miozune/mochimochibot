@@ -13,9 +13,9 @@ def timed_auto_follow():
     auto_follow.main().main()
 
 
-# @schedule.scheduled_job("cron", hour="0,1,2,3,4,5,6,7,8,9,10,11")
-# def timed_regular_tweet():
-#     regular_tweet.regular_tweet()
+@schedule.scheduled_job("cron", hour="0,1,2,3,4,5,6,7,8,9,10,11")
+def timed_regular_tweet():
+    regular_tweet.regular_tweet()
 
 
 # @schedule.scheduled_job('interval', seconds=70)
