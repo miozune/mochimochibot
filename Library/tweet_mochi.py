@@ -28,22 +28,23 @@ class TweetMochi(object):
         self.instance_tweet = None
 
     def mochi_num(self):
+        _text = self.text
         for word in mochimochi.ignore_words:
-            self.text = self.text.replace(word, "")
+            _text = self.text.replace(word, "")
 
         count = 0
         for mochi in ["モチ", "もち", "ﾓﾁ"]:
-            count += self.text.count(mochi)
+            count += _text.count(mochi)
         return count
 
     def is_reply_target(self, my_status):
         if (not self.status.retweeted) and ("RT @" not in self.text) \
                 and (self.status.in_reply_to_user_id is None or self.status.in_reply_to_user_id == my_status.id) \
-                and self.status.id != my_status.id \
+                and self.status.user.id != my_status.id \
                 and self.mochi_num() > 0:
             # RTには反応しない
             # 自分以外へのリプには反応しない
-            # 自身からのリプには反応しない
+            # 自身のツイートには反応しない
             # モチが含まれていること
             return True
         else:
