@@ -18,3 +18,13 @@ def regular_tweet():
     print('regular tweet success!')
     print(tweet)
     print('-' * 20)
+
+
+def main():
+    for count in range(5):
+        try:
+            regular_tweet()
+            exit()
+        except tweepy.error.TweepError:
+                print('Warning: tweet duplicated: send again')
+    print('ERROR!: failed regular tweet...')
