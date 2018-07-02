@@ -39,13 +39,13 @@ class TweetMochi(object):
 
     def is_reply_target(self, my_status):
         if (not self.status.retweeted) and ("RT @" not in self.text) \
-                and (self.status.in_reply_to_user_id is None or self.status.in_reply_to_user_id == my_status.id) \
                 and self.status.user.id != my_status.id \
-                and self.mochi_num() > 0:
+                and ((self.status.in_reply_to_user_id is None and self.mochi_num() > 0)
+                     or self.status.in_reply_to_user_id == my_status.id):
             # RTには反応しない
-            # 自分以外へのリプには反応しない
             # 自身のツイートには反応しない
-            # モチが含まれていること
+            # リプじゃなければモチが含まれていること
+            # リプならすべて反応、ただし自分以外へのリプには巻き込みモチしない
             return True
         else:
             return False
