@@ -55,7 +55,7 @@ class TweetMochi(object):
         to_reply = '@{0}\n'.format(self.screen_name)
         count = self.mochi_num()
 
-        if count == 1:
+        if count <= 1:
             return to_reply + choice(mochimochi.level1)
         elif 2 <= count <= 5:
             return to_reply + ''.join([choice(mochimochi.level1 + mochimochi.level2) for _ in range(count // 2)])
