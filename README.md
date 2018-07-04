@@ -11,7 +11,8 @@ Twitter→ [@mochimochi__bot](https://twitter.com/mochimochi__bot)
 
 # 仕組み
 Heroku上にデプロイして動かしています  
-実際に稼働しているのは`main.py`です  
+実際に稼働しているのは`main.py`です
+
 中身は
 - `mochi_stream.py`でタイムラインを取得→反応
 - `regular_tweet.py`で定期ツイート
