@@ -56,15 +56,15 @@ class TweetMochi(object):
         count = self.mochi_num()
 
         if count <= 1:
-            return to_reply + choice(mochimochi.level1)
+            return to_reply + choice(mochimochi.level1 + mochimochi.level2)
         elif 2 <= count <= 5:
-            return to_reply + ''.join([choice(mochimochi.level1 + mochimochi.level2) for _ in range(count // 2)])
+            return to_reply + ''.join([choice(mochimochi.level1 + mochimochi.level2) for _ in range(count // 2 + 1)])
         elif 6 <= count <= 20:
             return to_reply + ''.join([choice(mochimochi.level1 + mochimochi.level2 + mochimochi.level3)
-                                       for _ in range(count // 2)])
+                                       for _ in range(count // 2 + 1)])
         else:
             return to_reply + ''.join([choice(mochimochi.level1 + mochimochi.level2 + mochimochi.level3 +
-                                              mochimochi.level4) for _ in range(1, 20)])
+                                              mochimochi.level4) for _ in range(20)])
 
     def tweet(self):
         self.instance_tweet = shortened_text(self.raw_reply_tweet())
