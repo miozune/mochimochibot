@@ -31,7 +31,7 @@ def main():
 
             except tweepy.error.TweepError as e:
                 print('*' * 20)
-                print('ERROR!: could not create friendship with @{0}, id:{1}'.format(user.name, user.id))
+                print('ERROR!: could not create friendship with @{}, id:{}'.format(user.name, user.id))
                 print('error_status: ' + str(e))
                 print('*' * 20)
 

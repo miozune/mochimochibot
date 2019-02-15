@@ -67,7 +67,7 @@ def callback(status):
         print('*' * 30)
 
     if is_reply_target():
-        to_reply = '@{0}\n'.format(status.user.screen_name)
+        to_reply = '@{}\n'.format(status.user.screen_name)
         raw_reply = generate_raw_reply()
         reply = utils.trim(to_reply + raw_reply)
         try:

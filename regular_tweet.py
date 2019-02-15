@@ -23,7 +23,7 @@ def regular_tweet():
 
 
 def main():
-    for count in range(5):
+    for _ in range(5):
         try:
             regular_tweet()
             return
