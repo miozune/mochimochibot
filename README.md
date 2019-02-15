@@ -14,6 +14,6 @@ Heroku上にデプロイして動かしています
 実際に稼働しているのは`main.py`です
 
 中身は
-- `mochi_stream.py`でタイムラインを取得→反応
+- `stream.py`でタイムラインを取得→反応
 - `regular_tweet.py`で定期ツイート
 - `auto_follow.py`で自動フォロバ

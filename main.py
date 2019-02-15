@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from apscheduler.schedulers.blocking import BlockingScheduler
-import mochi_stream
+import stream
 import auto_follow
 import regular_tweet
 
@@ -24,5 +24,5 @@ def timed_regular_tweet():
 
 
 if __name__ == '__main__':
-    mochi_stream.main()
+    stream.main()
     schedule.start()
