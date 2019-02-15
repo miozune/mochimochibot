@@ -27,7 +27,7 @@ def main():
         for user in api.lookup_users(user_ids=not_following_ids[i:i + 100]):
             try:
                 api.create_friendship(user.id)
-                print('created friendship with ' + user.name + " @" + user.screen_name)
+                print('created friendship with {} @{}'.format(user.name, user.screen_name))
 
             except tweepy.error.TweepError as e:
                 print('*' * 20)

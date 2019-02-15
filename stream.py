@@ -19,14 +19,14 @@ def callback(status):
     def count_mochi_num():
         text = status.text
         for word in mochimochi.ignore_words:
-            text = text.replace(word, "")
+            text = text.replace(word, '')
         count = 0
-        for mochi in ["モチ", "もち", "ﾓﾁ"]:
+        for mochi in ['モチ', 'もち', 'ﾓﾁ']:
             count += text.count(mochi)
         return count
 
     def is_reply_target():
-        if (not status.retweeted) and ("RT @" not in status.text) \
+        if (not status.retweeted) and ('RT @' not in status.text) \
                 and status.user.id != my_status.id \
                 and ((status.in_reply_to_user_id is None and count_mochi_num() > 0)
                      or status.in_reply_to_user_id == my_status.id):
