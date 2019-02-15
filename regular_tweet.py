@@ -26,7 +26,7 @@ def main():
     for count in range(5):
         try:
             regular_tweet()
-            exit()
+            return
         except tweepy.error.TweepError:
                 print('Warning: tweet duplicated: send again')
     print('ERROR!: failed regular tweet...')
