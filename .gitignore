@@ -2,4 +2,3 @@ __pycache__/
 .idea/
 .env
 local.py
-Library/dump.csv
