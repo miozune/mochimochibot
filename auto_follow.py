@@ -40,6 +40,6 @@ if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
-        print('\n\nterminated by KeyboardInterrupt\n')
+        print('terminated by user')
         import sys
         sys.exit()
