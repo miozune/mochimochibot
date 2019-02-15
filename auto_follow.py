@@ -21,7 +21,7 @@ def main():
 
     if len(not_following_ids) == 0:
         # sleep(70)
-        exit()
+        return
 
     for i in range(0, len(not_following_ids), 100):
         for user in api.lookup_users(user_ids=not_following_ids[i:i + 100]):
