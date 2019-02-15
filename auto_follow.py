@@ -2,7 +2,6 @@
 
 import tweepy
 from time import sleep
-from Library import *
 import setting
 
 api = setting.get_api()
@@ -35,15 +34,6 @@ def main():
                 print('ERROR!: could not create friendship with @{0}, id:{1}'.format(user.name, user.id))
                 print('error_status: ' + str(e))
                 print('*' * 20)
-
-                with open('Library\dump.csv', 'a') as f:
-                    import csv
-                    from datetime import datetime
-                    writer = csv.writer(f)
-
-                    writer.writerow(str(datetime.now()))
-                    writer.writerow(str(e))
-                    writer.writerow('-' * 30)
 
 
 if __name__ == '__main__':

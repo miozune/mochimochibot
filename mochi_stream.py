@@ -5,7 +5,8 @@ import datetime
 from random import choice
 from tsae import StreamingEmulate
 import tweepy
-from Library import *
+
+import mochimochi
 import setting
 
 list_name = 'mochi'

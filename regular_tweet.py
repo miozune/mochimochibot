@@ -4,7 +4,8 @@ from bisect import bisect_right
 import tweepy
 from random import choice
 from random import randint
-from Library import *
+
+import mochimochi
 import setting
 
 api = setting.get_api()
