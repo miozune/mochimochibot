@@ -70,13 +70,6 @@ class TweetMochi(object):
         self.instance_tweet = shortened_text(self.raw_reply_tweet())
         return self.instance_tweet
 
-    def reply_and_fav_success_report(self):
-        print('{0} @{1}'.format(self.username, self.screen_name))
-        print(self.text)
-        print('->')
-        print(self.instance_tweet)
-        print('-' * 20)
-
     def reply_fail_report(self, error_status):
         print('*' * 20)
         print('ERROR!: failed to tweet')
@@ -91,20 +84,4 @@ class TweetMochi(object):
             writer.writerow(str(datetime.now()))
             writer.writerow(str(error_status))
             writer.writerow(self.instance_tweet)
-            writer.writerow('-' * 30)
-
-    def fav_fail_report(self, error_status):
-        print('*' * 20)
-        print('ERROR!: failed to fav')
-        print(self.status.text)
-        print('*' * 20)
-
-        with open('dump.csv', 'a') as f:
-            import csv
-            from datetime import datetime
-            writer = csv.writer(f)
-
-            writer.writerow(str(datetime.now()))
-            writer.writerow(str(error_status))
-            writer.writerow(self.status.text)
             writer.writerow('-' * 30)
