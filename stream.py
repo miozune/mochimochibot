@@ -51,12 +51,12 @@ def callback(status):
             return ''.join([choice(mochimochi.level1 + mochimochi.level2 + mochimochi.level3 +
                                               mochimochi.level4) for _ in range(20)])
 
-    def reply_success_report(raw_reply):
+    def reply_success_report(reply):
         print(datetime.datetime.now())
         print('{} @{}'.format(status.user.name, status.user.screen_name))
         print(status.text)
         print('->')
-        print(raw_reply)
+        print(reply)
         print('-' * 30)
 
     def reply_fail_report(reply, err):
@@ -72,7 +72,7 @@ def callback(status):
         reply = utils.trim(to_reply + raw_reply)
         try:
             api.update_status(reply, status.id)
-            reply_success_report(raw_reply)
+            reply_success_report(reply.split('\n')[1])
         except tweepy.error.TweepError as err:
             reply_fail_report(reply, err)
 
