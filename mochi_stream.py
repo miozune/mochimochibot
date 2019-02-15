@@ -8,6 +8,7 @@ import tweepy
 
 import mochimochi
 import setting
+import utils
 
 list_name = 'mochi'
 api = setting.get_api()
@@ -50,18 +51,6 @@ def callback(status):
             return ''.join([choice(mochimochi.level1 + mochimochi.level2 + mochimochi.level3 +
                                               mochimochi.level4) for _ in range(20)])
 
-    def count_text_bytes(sentence):
-        cumulative_sum = [0]
-        for c in sentence:
-            if 0 <= ord(c) <= 4351 or 8192 <= ord(c) <= 8205 or 8208 <= ord(c) <= 8223 or 8242 <= ord(c) <= 8247:
-                cumulative_sum.append(cumulative_sum[-1] + 1)
-            else:
-                cumulative_sum.append(cumulative_sum[-1] + 2)
-        return cumulative_sum[1:]
-
-    def trim(sentence):
-        return sentence[:bisect_right(count_text_bytes(sentence), 280)]
-
     def reply_success_report(raw_reply):
         print(datetime.datetime.now())
         print('{} @{}'.format(status.user.name, status.user.screen_name))
@@ -80,7 +69,7 @@ def callback(status):
     if is_reply_target():
         to_reply = '@{0}\n'.format(status.user.screen_name)
         raw_reply = generate_raw_reply()
-        reply = trim(to_reply + raw_reply)
+        reply = utils.trim(to_reply + raw_reply)
         try:
             api.update_status(reply, status.id)
             reply_success_report(raw_reply)
