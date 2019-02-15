@@ -5,9 +5,9 @@ import tweepy
 from random import choice
 from random import randint
 from Library import *
+import setting
 
-auth = get_auth.get_auth()
-api = tweepy.API(auth)
+api = setting.get_api()
 
 
 def count_text_bytes(sentence):

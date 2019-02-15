@@ -3,9 +3,9 @@
 import tweepy
 from time import sleep
 from Library import *
+import setting
 
-auth = get_auth.get_auth()
-api = tweepy.API(auth)
+api = setting.get_api()
 my_status = api.me()
 
 

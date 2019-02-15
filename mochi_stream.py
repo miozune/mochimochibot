@@ -6,10 +6,10 @@ from random import choice
 from tsae import StreamingEmulate
 import tweepy
 from Library import *
+import setting
 
 list_name = 'mochi'
-auth = get_auth.get_auth()
-api = tweepy.API(auth)
+api = setting.get_api()
 my_status = api.me()
 
 
