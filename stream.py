@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from bisect import bisect_right
 import datetime
 from random import choice
 from tsae import StreamingEmulate

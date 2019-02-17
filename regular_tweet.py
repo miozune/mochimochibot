@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from bisect import bisect_right
 import tweepy
 from random import choice
 from random import randint

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from apscheduler.schedulers.blocking import BlockingScheduler
-import stream
+
 import auto_follow
 import regular_tweet
+import stream
 
 schedule = BlockingScheduler()
 

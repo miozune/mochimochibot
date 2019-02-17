@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from apscheduler.schedulers.blocking import BlockingScheduler
-import tweepy
 from time import sleep
+import tweepy
+
 import setting
 
 api = setting.get_api()
