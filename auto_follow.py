@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from apscheduler.schedulers.blocking import BlockingScheduler
 import tweepy
 from time import sleep
 import setting
@@ -38,7 +39,11 @@ def main():
 
 if __name__ == '__main__':
     try:
-        main()
+        schedule = BlockingScheduler()
+        @schedule.scheduled_job('interval', seconds=70)
+        def timed_auto_follow():
+            main()
+        schedule.start()
     except KeyboardInterrupt:
         print('terminated by user')
         import sys
