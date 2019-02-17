@@ -53,7 +53,12 @@ def callback(status):
         special_mochi, sp_count = generate_special_mochi()
         count -= sp_count
 
-        if count <= 1:
+        if count == 0:
+            if sp_count == 0:
+                normal_mochi = [choice(mochimochi.level1 + mochimochi.level2)]
+            else:
+                normal_mochi = []
+        elif count == 1:
             normal_mochi = [choice(mochimochi.level1 + mochimochi.level2)]
         elif 2 <= count <= 5:
             normal_mochi = [choice(mochimochi.level1 + mochimochi.level2) for _ in range(count // 2 + 1)]
