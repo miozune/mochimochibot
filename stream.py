@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+import random
 from random import choice
 from tsae import StreamingEmulate
 import tweepy
@@ -37,18 +38,33 @@ def callback(status):
         else:
             return False
 
+    def generate_special_mochi():
+        text = status.text
+        special_mochi = []
+        sp_count = 0
+        for mochi in mochimochi.special_mochi:
+            if text.count(mochi['name']) and random.random() < mochi['rate']:
+                special_mochi.append(mochi['reply'])
+                sp_count += text.count(mochi['name'])
+        return special_mochi, sp_count
+
     def generate_raw_reply():
         count = count_mochi_num()
+        special_mochi, sp_count = generate_special_mochi()
+        count -= sp_count
+
         if count <= 1:
-            return choice(mochimochi.level1 + mochimochi.level2)
+            normal_mochi = [choice(mochimochi.level1 + mochimochi.level2)]
         elif 2 <= count <= 5:
-            return ''.join([choice(mochimochi.level1 + mochimochi.level2) for _ in range(count // 2 + 1)])
+            normal_mochi = [choice(mochimochi.level1 + mochimochi.level2) for _ in range(count // 2 + 1)]
         elif 6 <= count <= 20:
-            return ''.join([choice(mochimochi.level1 + mochimochi.level2 + mochimochi.level3)
-                                       for _ in range(count // 2 + 1)])
+            normal_mochi = [choice(mochimochi.level1 + mochimochi.level2 + mochimochi.level3)
+                            for _ in range(count // 2 + 1)]
         else:
-            return ''.join([choice(mochimochi.level1 + mochimochi.level2 + mochimochi.level3 +
-                                              mochimochi.level4) for _ in range(20)])
+            normal_mochi = [choice(mochimochi.level1 + mochimochi.level2 + mochimochi.level3 + mochimochi.level4)
+                            for _ in range(20)]
+
+        return ''.join(special_mochi + normal_mochi)
 
     def reply_success_report(reply):
         print(datetime.datetime.now())
