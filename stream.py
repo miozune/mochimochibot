@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+import html
 import random
 from random import choice
 from tsae import StreamingEmulate
@@ -74,7 +75,7 @@ def callback(status):
     def reply_success_report(reply):
         print(datetime.datetime.now())
         print('{} @{}'.format(status.user.name, status.user.screen_name))
-        print(status.text)
+        print(html.unescape(status.text))
         print('->')
         print(reply)
         print('-' * 30)
